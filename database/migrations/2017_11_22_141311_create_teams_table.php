@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateTeamsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('teams', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('short_name');
+            $table->integer('api_id');
+            $table->string('season');
+            $table->timestamps();
+            $table->index('short_name');
+            $table->index('name');
+            $table->index('season');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('teams');
+    }
+}

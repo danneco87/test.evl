@@ -17,4 +17,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//Router single pages
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Admin router @todo change to group with middleware
+Route::namespace('admin')->prefix('admin')->group(function () {
+    Route::get('/home', 'AdminController@index')->name('admin');
+});
+
+//Team route
+Route::namespace('teams')->prefix('eredivisie')->group(function () {
+    Route::get('/teams', 'TeamsController@index')->name('teams');
+    Route::get('/team/{id}', 'TeamsController@team')->name('team')->where('id', '[0-9]+');
+    Route::resource('/teams', 'TeamsController');
+});
