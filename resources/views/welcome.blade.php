@@ -78,7 +78,7 @@
             @endif
             <div class="content">
                 <div class="title m-b-md">
-                    EREDIVISIE VOETBAL LEAGUE
+                    Eredivisie Voetbal League
                 </div>
 
                 @if (Route::has('login'))
