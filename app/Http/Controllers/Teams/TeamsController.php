@@ -52,7 +52,7 @@ class TeamsController extends Controller
      */
     public function create()
     {
-        return view('eredivisie/create');
+        return view('eredivisie.create');
     }
 
     /**
@@ -72,7 +72,7 @@ class TeamsController extends Controller
         $new = new Teams();
         $new->create($request->all());
 
-        return redirect()->route('eredivisie/teams')
+        return redirect()->route('teams.index')
                          ->with('success', 'Team created successfully');
     }
 

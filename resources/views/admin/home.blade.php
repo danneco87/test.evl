@@ -99,14 +99,14 @@
                             <tr>
                                 <td></td>
                                 <td><a href="{!! route('team', [$team->id]) !!}">{{ $team->name }}</a></td>
-                                <td>{!! MatchesHelper::getTableData($team->id)['matches'] !!}</td>
-                                <td>{!! MatchesHelper::getTableData($team->id)['wins'] !!}</td>
-                                <td>{!! MatchesHelper::getTableData($team->id)['draws'] !!}</td>
-                                <td>{!! MatchesHelper::getTableData($team->id)['losses'] !!}</td>
-                                <td>{!! MatchesHelper::getTableData($team->id)['goalsFor'] !!}</td>
-                                <td>{!! MatchesHelper::getTableData($team->id)['goalsAgainst'] !!}</td>
-                                <td>{!! MatchesHelper::getTableData($team->id)['goalsDifference'] !!}</td>
-                                <td>{!! MatchesHelper::getTableData($team->id)['points'] !!}</td>
+                                <td>{!! $stats->getTableData($team->id)['matches'] !!}</td>
+                                <td>{!! $stats->getTableData($team->id)['wins'] !!}</td>
+                                <td>{!! $stats->getTableData($team->id)['draws'] !!}</td>
+                                <td>{!! $stats->getTableData($team->id)['losses'] !!}</td>
+                                <td>{!! $stats->getTableData($team->id)['goalsFor'] !!}</td>
+                                <td>{!! $stats->getTableData($team->id)['goalsAgainst'] !!}</td>
+                                <td>{!! $stats->getTableData($team->id)['goalsDifference'] !!}</td>
+                                <td>{!! $stats->getTableData($team->id)['points'] !!}</td>
                             </tr>
                         @endforeach
                         </tbody>

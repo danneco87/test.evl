@@ -4,6 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\Role
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $users
+ * @mixin \Eloquent
+ */
 class Role extends Model
 {
     /**
@@ -27,5 +33,10 @@ class Role extends Model
     public function users()
     {
         return $this->belongsToMany(User::class);
+    }
+
+    public function getRoles()
+    {
+        return $this->get('name')->all();
     }
 }

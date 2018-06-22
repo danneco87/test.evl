@@ -11,7 +11,7 @@ use App\Models\Matches;
 
 class MatchesHelper
 {
-    public static function getTableData($id)
+   function getTableData($id)
     {
         return Matches::getMatchData($id);
     }
