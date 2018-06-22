@@ -4,6 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\Players
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Statistics[] $stats
+ * @property-read \App\Models\Teams $teams
+ * @mixin \Eloquent
+ */
 class Players extends Model
 {
     /**

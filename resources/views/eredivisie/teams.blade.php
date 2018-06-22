@@ -22,9 +22,9 @@
                     <p>New Orders</p>
                 </div>
                 <div class="icon">
-                    <i class="ion ion-bag"></i>
+                    <i class="ion ion-ios-football"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{!! route('teams.create') !!}" class="small-box-footer"><button type="button" class="btn btn-info">NEW TEAM</button></a>
             </div>
         </div>
         <div class="col-lg-3 col-xs-6">
@@ -52,7 +52,7 @@
                 <div class="icon">
                     <i class="ion ion-bag"></i>
                 </div>
-                <a href="#" class="big-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <div class="col-lg-3 col-xs-6">
@@ -72,13 +72,12 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <div class="box">
-                <div class="box-header with-border">
-                    <h3 class="box-title">
-                        Table
-                    </h3>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-minus"></i></span>
+                    <h3 class="panel-title">Teams</h3>
                 </div>
-                <div class="box-body">
+                <div class="panel-body">
                     <table id="teams" class="table table-bordered table-striped">
                         <thead>
                         <tr>
@@ -96,35 +95,39 @@
                         </thead>
                         <tbody>
                         @foreach($teams as $key => $team)
-                            <tr>
-                                <td></td>
-                                <td><a href="{!! route('team', [$team->id]) !!}">{{ $team->name }}</a></td>
-                                <td>{!! MatchesHelper::getTableData($team->id)['matches'] !!}</td>
-                                <td>{!! MatchesHelper::getTableData($team->id)['wins'] !!}</td>
-                                <td>{!! MatchesHelper::getTableData($team->id)['draws'] !!}</td>
-                                <td>{!! MatchesHelper::getTableData($team->id)['losses'] !!}</td>
-                                <td>{!! MatchesHelper::getTableData($team->id)['goalsFor'] !!}</td>
-                                <td>{!! MatchesHelper::getTableData($team->id)['goalsAgainst'] !!}</td>
-                                <td>{!! MatchesHelper::getTableData($team->id)['goalsDifference'] !!}</td>
-                                <td>{!! MatchesHelper::getTableData($team->id)['points'] !!}</td>
-                            </tr>
+                            {{--<tr>--}}
+                                {{--<td></td>--}}
+                                {{--<td><a href="{!! route('team', [$team->id]) !!}">{{ $team->name }}</a></td>--}}
+                                {{--<td>{!! getTableData($team->id)['matches'] !!}</td>--}}
+                                {{--<td>{!! getTableData($team->id)['wins'] !!}</td>--}}
+                                {{--<td>{!! getTableData($team->id)['draws'] !!}</td>--}}
+                                {{--<td>{!! getTableData($team->id)['losses'] !!}</td>--}}
+                                {{--<td>{!! getTableData($team->id)['goalsFor'] !!}</td>--}}
+                                {{--<td>{!! getTableData($team->id)['goalsAgainst'] !!}</td>--}}
+                                {{--<td>{!! getTableData($team->id)['goalsDifference'] !!}</td>--}}
+                                {{--<td>{!! getTableData($team->id)['points'] !!}</td>--}}
+                            {{--</tr>--}}
                         @endforeach
                         </tbody>
                     </table>
                 </div>
-                <!-- /.box-body -->
             </div>
-            <!-- /.box -->
-        </div>
-        <!-- /.col -->
-        <div class="col-md-6">
-            <div class="box">
-                <div class="box-header with-border">
-                    <h3 class="box-title">
-                        Top Scorer
-                    </h3>
+            @if ($message = Session::get('success'))
+                <div class="panel-footer">
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
+                    </div>
                 </div>
-                <div class="box-body">
+            @endif
+
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-minus"></i></span>
+                    <h3 class="panel-title">Top scorers</h3>
+                </div>
+                <div class="panel-body">
                     <table id="topScorers" class="table table-bordered table-striped">
                         <thead>
                         <tr>
@@ -148,11 +151,8 @@
                         </tbody>
                     </table>
                 </div>
-                <!-- /.box-body -->
             </div>
-            <!-- /.box -->
         </div>
-        <!-- /.col -->
     </div>
     <!-- /.row -->
 @stop

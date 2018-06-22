@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class CheckRole
@@ -15,7 +16,7 @@ class CheckRole
      *
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next): Response
     {
         if (Auth::check() && $request->user()->authorizeRoles(['admin'])) {
             return $next($request);

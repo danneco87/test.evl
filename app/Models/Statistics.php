@@ -4,6 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\Statistics
+ *
+ * @property-read \App\Models\Players $players
+ * @mixin \Eloquent
+ */
 class Statistics extends Model
 {
     /**

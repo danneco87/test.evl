@@ -4,6 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\Matches
+ *
+ * @mixin \Eloquent
+ */
 class Matches extends Model
 {
     /**
